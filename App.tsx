@@ -1,7 +1,8 @@
 import * as React from 'react';
 import './style.css';
 
-export default function App() {
+
+function usePi() {
   const [pi, setPi] = React.useState<string>('10');
   const handlePi = React.useCallback((e) => {
     const size= Number(e.target.value)
@@ -16,12 +17,26 @@ export default function App() {
     }
     setPi(4*inCircle/size)
   }, [setPi])
+  return [pi, handlePi]
+}
+
+function MonteCarlo() {
+  const [pi, handlePi] = usePi()
+
+  return(
+  <React.Fragment>
+      <input type="text" onChange={handlePi}/>
+      <p> Pi is about {pi} </p>
+  </React.Fragment>
+  )
+}
+
+export default function App() {
 
 
   return (
     <div>
-      <input type="text" onChange={handlePi}/>
-      <p> Pi is about {pi} </p>
+      <MonteCarlo />
     </div>
   );
 }
