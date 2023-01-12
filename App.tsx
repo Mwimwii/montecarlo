@@ -6,6 +6,7 @@ function usePi() {
   const [pi, setPi] = React.useState<string>('10');
   const [loading, setLoading] = React.useState(false)
   const handlePi = React.useCallback((e) => {
+    setLoading(true)
     const size= Number(e.target.value)
     let inCircle = 0;
     for(let i = 0; i < size; i++) {
@@ -16,7 +17,6 @@ function usePi() {
         inCircle++
       }
     }
-    setLoading(true)
     setPi(4*inCircle/size)
     setLoading(false)
   }, [setPi])
