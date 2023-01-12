@@ -1,34 +1,27 @@
 import * as React from 'react';
 import './style.css';
-import { Fraction, toTex } from 'algebra.js';
-import { Node, Context } from 'react-mathjax';
 
-function Formula(props) {
-  return (
-    <Context input="tex">
-      <Node inline>{props.tex}</Node>
-    </Context>
-  );
-}
-
-function FractionDisplay() {
-  const a = new Fraction(1, 5);
-  const b = new Fraction(2, 7);
-  const answer = a.multiply(b);
-
-  const question = <Formula tex={`${toTex(a)} × ${toTex(b)} = ${toTex(answer)}`} />;
-
-  return (
-    <div>
-      {question}
-    </div>
-  );
-}
 export default function App() {
+  const [pi, setPi] = React.useState<string>('10');
+  const handlePi = React.useCallback((e) => {
+    const size= Number(e.target.value)
+    let inCircle = 0;
+    for(let i = 0; i < size; i++) {
+      const x = Math.random();
+      const y = Math.random();
+      euclid = x*x + y*y
+      if(euclid < 1){
+        inCircle++
+      }
+    }
+    setPi(4*inCircle/size)
+  }, [setPi])
+
 
   return (
     <div>
-      <FractionDisplay/>
+      <input type="text" onChange={handlePi}/>
+      <p> Pi is about {pi} </p>
     </div>
   );
 }

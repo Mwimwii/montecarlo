@@ -38,7 +38,7 @@ In the following code we will simulate the above calculation by creating a funct
   - The Math.random is used to generate random values for our x and y coordinates.
   - We then have to calculate the distance of our coordinates by using the Euclidian Distance formula (x-0)^2 + (y-0)^2
   - If the euclidian distance is less than or equal 1 we can conclude that the point is within the radius of the circle (Assuming the radius r is 1). 
-  - We then use the formula earlier to return the probability
+  - We then use the formula earlier to return the probability.
 
 ```js
 function random(size) {
