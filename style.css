@@ -1,0 +1,6 @@
+@import "mafs/core.css";
+@import "mafs/font.css";
+
+h1, p {
+  font-family: Lato;
+}
